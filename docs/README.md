@@ -2,7 +2,7 @@
 
 ### Background  
 
-Synthwaves is a virtual synthesizer that mathematically creates sounds from the pentatonic scale, one of humanity's most [fascinatingly widespread](https://www.youtube.com/watch?v=ne6tB2KiZuk) musical constructs.
+Synthwaves is a virtual synthesizer that generates sounds from the pentatonic scale, one of humanity's most [fascinatingly widespread](https://www.youtube.com/watch?v=ne6tB2KiZuk) musical constructs. Each sound is created from an audio oscillator of a given frequency.
 
 ### Functionality & MVP  
 
@@ -33,31 +33,25 @@ This project will be implemented with the following technologies:
 
 In addition to the webpack entry file, there will be four scripts involved in this project:
 
-`grid.js`: handle the logic for creating and updating the necessary grid elements and rendering them to the DOM.
+`keyboard.js`: handle the logic for creating and updating the necessary keyboard elements and rendering them to the DOM.
 
-`sequencer.js`: handle behind-the-scenes logic of actually playing the user-generated pattern.
+`synth.js`: handle interfacing with `HTML5 WebAudioKit API` to create sound
 
-`synth.js`: handle interfacing with `HTML5 WebAudioKit API`.
-
-`square.js`: house the constructor and update functions for the `Square` objects.  Each `Square` will contain a `playing` boolean, a `note` that it plays, a `position` coordinate, and a `time` (what time it should play, relative to the beginning of the measure)
+`animation.js`: handle animating the sound visualization on the bottom of the screen
 
 
 ### Implementation Timeline
 
 **Day 1**
 
-Setting up the files structure. Writing the rendering logic.
+Setting up the files structure. Writing the rendering logic. Setting up live url. Learning how to interface with `HTML5 WebAudioKit API`.
 
 **Day 2**
-
-Setting up live url. Learning how to interface with `HTML5 WebAudioKit API`.
-
-**Day 3**
 
 Writing the sequencer logic
 
 
-**Day 4**
+**Day 3**
 
 Making random patterns. Styling the board, transitions, and effects.
 
