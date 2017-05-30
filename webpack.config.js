@@ -6,14 +6,6 @@ module.exports = {
     path: path.resolve(__dirname),
   	filename: "./bundle.js"
   },
-  module: {
-  loaders: [
-    {
-      test: [/\.js?$/],
-      exclude: /node_modules/,
-    }
-  ]
-},
   devtool: 'source-maps',
   resolve: {
     extensions: [".js", "*"]

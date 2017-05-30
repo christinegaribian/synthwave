@@ -63,13 +63,62 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
 
+class Synth{
+  constructor(keyboard){
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    window.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  handleKeyDown(e){
+      console.log("hello!");
+  }
+}
+
+module.exports = Synth;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const Synth = __webpack_require__(0);
+const keyboardAnimation = __webpack_require__(2);
+document.addEventListener("DOMContentLoaded", function(){
+  const keyboard = document.getElementById("keyboard");
+  const keyboardAnim = new keyboardAnimation(keyboard);
+  const synth = new Synth(keyboard);
+
+
+});
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+class keyboardAnimation{
+  constructor(keyboard){
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    window.addEventListener("keydown", this.handleKeyDown);
+  }
+
+
+  handleKeyDown(e){
+    console.log("hello2222!");
+  }
+
+  playNote(note){
+    // synth.playNote
+  }
+}
+module.exports = keyboardAnimation;
 
 
 /***/ })
