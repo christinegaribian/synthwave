@@ -68,7 +68,7 @@ ul {
 
 /* Keyboard Animation */
 
-.key.selected{
+.key.active{
   background: #00ffc7;
   border: white;
   width: 65px;
