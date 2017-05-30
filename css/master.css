@@ -56,4 +56,11 @@ ul {
   height: 60px;
   border-radius: 13px;
   margin: 5px;
+  line-height: 6vmin;
+
+
+}
+
+.space {
+  width: 500px;
 }
