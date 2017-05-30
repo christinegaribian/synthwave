@@ -1,7 +1,7 @@
 var path = require("path");
 module.exports = {
   context: __dirname,
-  entry: "./lib/soundwaves.js",
+  entry: "./synthwaves.js",
   output: {
     path: path.resolve(__dirname),
   	filename: "./bundle.js"
