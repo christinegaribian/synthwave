@@ -70,8 +70,11 @@ ul {
 
 .key.active{
   background: #00ffc7;
-  border: white;
-  width: 65px;
-  height: 65px;
-  margin: 0;
+  /*border: white;
+
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -ms-transition: 0s;
+  transition: 0s;
+  transform: scale(1.15);
 }

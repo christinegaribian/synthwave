@@ -107,15 +107,15 @@ const NOTES = __webpack_require__(2);
 
 class Synth{
   constructor(keyboard){
-    // bind contexts
-    this.playNote = this.playNote.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleKeyUp = this.handleKeyUp.bind(this);
-
     this.keyDown = false;
 
+    // bind contexts
+    this.playNote = this.playNote.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+
+
     // set audio context
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
     this.audioContext = new AudioContext();
 
 
@@ -125,8 +125,8 @@ class Synth{
 
   handleKeyDown(e){
     if (!this.keyDown){
-      this.playNote(e.keyCode);
       this.keyDown = true;
+      this.playNote(e.keyCode);
     }
   }
 
@@ -158,8 +158,11 @@ class Synth{
     this.biquad.frequency.value = 1000;
 
     // Set the Audio Analyser
-    // this.analyser = this.audioContext.createAnalyser();
-
+    this.analyser = this.audioContext.createAnalyser();
+    // this.analyser.minDecibels = -90;
+    // this.analyser.maxDecibels = -10;
+    // this.analyser.smoothingTimeConstant = 0.65;
+    // this.analyser.fftSize = 512;
 
     // Set the distortion
     // this.distortion = this.audioContext.createWaveShaper();
@@ -170,7 +173,8 @@ class Synth{
     this.source.connect(this.biquad);
     // this.convolver.connect(this.biquad);
     this.biquad.connect(this.gain);
-    this.gain.connect(this.audioContext.destination);
+    this.gain.connect(this.analyser);
+    this.analyser.connect(this.audioContext.destination);
     this.source.start(0);
   }
 
@@ -230,16 +234,168 @@ module.exports = NOTES;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const Synth = __webpack_require__(1);
 const KeyboardAnimation = __webpack_require__(0);
+const Synth = __webpack_require__(1);
+const Bird = __webpack_require__(4);
 
 document.addEventListener("DOMContentLoaded", function(){
   const keyboard = document.getElementById("keyboard");
   const animation = new KeyboardAnimation(keyboard);
-  const synth = new Synth(keyboard);
+
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+  // const synth = new Synth(keyboard);
+  const bird = new Bird(keyboard);
 
 
 });
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const BufferLoader = __webpack_require__(5);
+
+const SOUNDS = [
+  '../assets/birds/mexican_parrot.mp3'
+];
+
+class Bird{
+  constructor(keyboard){
+    this.playSound = this.playSound.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+    // this.finishedLoading = this.finishedLoading.bind(this);
+
+    this.keyDown = false;
+    this.audioContext = new AudioContext();
+
+    this.loaded = false;
+    // this.loadAllSounds.bind(this)('../assets/birds/mexican_parrot.mp3');
+    this.loadAllSounds.bind(this)();
+    window.addEventListener("keyup", this.handleKeyUp);
+    window.addEventListener("keydown", this.handleKeyDown);
+  }
+
+
+  handleKeyDown(e){
+    if (!this.keyDown){
+      this.playSound(e.keyCode);
+      this.keyDown = true;
+    }
+  }
+
+  handleKeyUp(e){
+    this.source.stop(0);
+    this.keyDown = false;
+  }
+
+  loadAllSounds(){
+    let context = this.audioContext;
+    let playSound = this.playSound;
+    // let bufferLoader = this.bufferLoader;
+
+    SOUNDS.forEach((sound) => {
+
+    })
+
+    this.bufferLoader = new BufferLoader(
+      context,
+      SOUNDS,
+      playSound
+    );
+    this.bufferLoader.load();
+  }
+
+  // finishedLoading(bufferList) {
+  //   // For ech sound, create and connect a buffer source
+  //   var kick = context.createBufferSource();
+  //   kick.buffer = bufferList[0];
+  //
+  //   kick.connect(context.destination);
+  //   // Play them together
+  //   kick.start(0);
+  //   // snare.start(0);
+  //   // hihat.start(0);
+  // }
+
+  playSound(bufferList){
+    // For ech sound, create and connect a buffer source
+    var kick = context.createBufferSource();
+    kick.buffer = bufferList[0];
+
+    kick.connect(context.destination);
+    // Play them together
+    kick.start(0);
+    // snare.start(0);
+    // hihat.start(0);
+    // this.source = this.audioContext.createBufferSource();
+    // this.source.buffer = this.bufferLoader[0];
+    //
+    // this.source.connect(this.audioContext.destination);
+    // this.source.start();
+  }
+
+}
+
+module.exports = Bird;
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+// http://middleearmedia.com/web-audio-api-bufferloader/
+
+class BufferLoader{
+  constructor(context, urlList, callback){
+    this.context = context;
+    this.urlList = urlList;
+    this.onload = callback;
+    this.bufferList = new Array();
+    this.loadCount = 0;
+  }
+
+  loadBuffer(url, index) {
+    var request = new XMLHttpRequest();
+    console.log("getting request");
+    request.open("GET", url, true);
+    console.log("got request");
+    console.log(request);
+    request.responseType = "arraybuffer";
+
+    var loader = this;
+
+    request.onload = function() {
+      loader.context.decodeAudioData(
+        request.response,
+        function(buffer) {
+          if (!buffer) {
+            alert('error decoding file data: ' + url);
+            return;
+          }
+          loader.bufferList[index] = buffer;
+          if (++loader.loadCount == loader.urlList.length)
+          loader.onload(loader.bufferList);
+        }
+      );
+    }
+
+    // request.onerror() {
+    //   alert('BufferLoader: XHR error');
+    // }
+    console.log("still working");
+    request.send();
+  }
+
+  load(){
+    for (var i = 0; i < this.urlList.length; ++i)
+    this.loadBuffer(this.urlList[i], i);
+  }
+}
+
+module.exports = BufferLoader;
 
 
 /***/ })

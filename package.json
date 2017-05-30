@@ -1,0 +1,30 @@
+{
+  "name": "synthwaves",
+  "version": "1.0.0",
+  "description": "",
+  "main": "synthwaves.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "dependencies": {
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christinegaribian/synthwaves.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christinegaribian/synthwaves/issues"
+  },
+  "homepage": "https://github.com/christinegaribian/synthwaves#readme"
+}
