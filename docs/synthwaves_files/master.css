@@ -68,10 +68,6 @@ ul {
 
 /* Keyboard Animation */
 
-.key.selected{
-  background: #00ffc7;
-  border: white;
-  width: 65px;
-  height: 65px;
-  margin: 0;
+.key:focus{
+  background: red;
 }

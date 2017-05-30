@@ -63,33 +63,15 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-class KeyboardAnimation{
-  constructor(keyboard){
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    window.addEventListener("keydown", this.handleKeyDown);
-  }
-
-
-  handleKeyDown(e){
-    document.getElementsByClassName(e.key)[0]
-    .classList.add('selected');
-  }
-}
-module.exports = KeyboardAnimation;
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const NOTES = __webpack_require__(2);
+"use strict";
+const NOTES = __webpack_require__(3);
 
 class Synth{
   constructor(keyboard){
@@ -110,7 +92,6 @@ class Synth{
   }
 
   handleKeyDown(e){
-    console.log(e);
     if (!this.keyDown){
       this.playNote(e.keyCode);
       this.keyDown = true;
@@ -170,7 +151,41 @@ module.exports = Synth;
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const Synth = __webpack_require__(0);
+const KeyboardAnimation = __webpack_require__(2);
+
+document.addEventListener("DOMContentLoaded", function(){
+  const keyboard = document.getElementById("keyboard");
+  const animation = new KeyboardAnimation(keyboard);
+  const synth = new Synth(keyboard);
+
+
+});
+
+
+/***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+class KeyboardAnimation{
+  constructor(keyboard){
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    window.addEventListener("keydown", this.handleKeyDown);
+  }
+
+
+  handleKeyDown(e){
+    // console.log(e);
+  }
+}
+module.exports = KeyboardAnimation;
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 // Start at C2#
@@ -211,22 +226,6 @@ const NOTES = {
 }
 
 module.exports = NOTES;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const Synth = __webpack_require__(1);
-const KeyboardAnimation = __webpack_require__(0);
-
-document.addEventListener("DOMContentLoaded", function(){
-  const keyboard = document.getElementById("keyboard");
-  const animation = new KeyboardAnimation(keyboard);
-  const synth = new Synth(keyboard);
-
-
-});
 
 
 /***/ })
