@@ -63,4 +63,3 @@ There are many directions this sequencer could go.  Some anticipated updates are
 - [ ] Option to share musical creation
 - [ ] Ability to add drums
 - [ ] Controls for delay, tempo, cutoff, resonance, reverb, release, and attack
-- [ ] Background visualizer
