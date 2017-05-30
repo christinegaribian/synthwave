@@ -44,16 +44,16 @@ In addition to the webpack entry file, there will be four scripts involved in th
 
 **Day 1**
 
-Setting up the files structure. Writing the rendering logic. Setting up live url. Learning how to interface with `HTML5 WebAudioKit API`.
+Setting up the files structure. Setting up live url. Render a keyboard.
 
 **Day 2**
 
-Writing the sequencer logic
+Creating the audio interface. Getting different keystrokes to produce different sounds.
 
 
 **Day 3**
 
-Making random patterns. Styling the board, transitions, and effects.
+Adding animation on the bottom. Styling the board, transitions, and effects.
 
 
 ### Bonus features
