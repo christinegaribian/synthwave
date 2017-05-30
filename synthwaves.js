@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
-  // const synth = new Synth(keyboard);
-  const bird = new Bird(keyboard);
+  // const synth = new Synth();
+  const bird = new Bird();
 
 
 });
