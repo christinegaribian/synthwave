@@ -9,11 +9,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // Audio
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
-  const selected_sound = document.getElementById("sounds");
+  const selectedSound = document.getElementById("sounds");
   let chosenInstrument = new Synth({isPluckySound: true});
 
-
-  selected_sound.onchange = (e) => {
+  selectedSound.onchange = (e) => {
     const options = e.srcElement.options;
     const chosenInstrumentName = options[options.selectedIndex].innerHTML;
     if(chosenInstrument){
@@ -33,5 +32,24 @@ document.addEventListener("DOMContentLoaded", function(){
   // Audio Visualization
   window.canvas = document.getElementById("visualization");
   window.canvasContext = canvas.getContext("2d");
+
+  // let chosenVisualization = new Visualization({isPluckySound: true});
+  //
+  // selectedVisualization.onchange = (e) => {
+  //   const options = e.srcElement.options;
+  //   const chosenVisualizationName = options[options.selectedIndex].innerHTML;
+  //   if(chosenVisualization){
+  //     chosenVisualization.destroy();
+  //   }
+  //
+  //   switch(chosenVisualizationName){
+  //     case 'Computer-Generated Synth':
+  //       return chosenVisualization = new Synth();
+  //     case 'Bird':
+  //       return chosenVisualization = new Bird();
+  //     case 'Plucky Synth':
+  //       return chosenVisualization = new Synth({isPluckySound: true});
+  //   }
+  // }
 
 });

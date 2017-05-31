@@ -30,8 +30,6 @@ html, body {
   font-family: Helvetica, sans-serif;
   font-size: 2.5vmin;
   margin: 0 auto;
-  background: rgb(25, 25, 25);
-  color: rgb(75, 75, 75);
   text-align: center;
   height: 100%;
   width: 100%;
@@ -57,7 +55,7 @@ ul {
 }
 
 .key {
-  border: 1px solid white;
+  border: 3px solid white;
   width: 60px;
   height: 60px;
   border-radius: 7px;
@@ -78,14 +76,16 @@ ul {
 }
 
 /* Drop Down Menu */
-#sounds{
-  background-color: rgb(25, 25, 25);
+#sounds, #visuals{
   height: 92px;
-  color: white;
   width: 461px;
   margin-top: 90px;
   font-size: 0.8rem;
   font-family: Helvetica, sans-serif;
+}
+
+#visuals{
+  margin: 0;
 }
 
 
@@ -95,7 +95,7 @@ ul {
   margin-top: 80px;
   width: 433px;
   height: 180px;
-  border: 15px double rgb(0, 150, 255);
+  /*border: 15px double rgb(0, 150, 255);*/
   box-shadow: -1px 0px 106px 1px rgb(0, 150, 255);
   line-height: 120px;
 }
