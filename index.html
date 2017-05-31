@@ -9,6 +9,15 @@
   <div class="title">
     <p>SYNTHWAVES</p>
   </div>
+  <select id="sounds">
+    <option disabled selected>Select a soundscape:</option>
+    <option value="synth">Computer-Generated Synth</option>
+    <option value="plucky">Plucky Synth</option>
+    <option value="Bird">Bird</option>
+  </select>
+  <div class="visualization">
+    <canvas></canvas>
+  </div>
   <div class="keyboard-wrapper">
     <section id="keyboard">
       <ul class="keyboard-row">
@@ -53,17 +62,8 @@
       <ul class="keyboard-row">
         <li class="key space blue">SPACE</li>
       </ul>
-      <select id="sounds">
-        <option disabled selected>Select a soundscape:</option>
-        <option value="synth">Computer-Generated Synth</option>
-        <option value="plucky">Plucky Synth</option>
-        <option value="Bird">Bird</option>
-      </select>
-    </section>
-  </div>
 
-  <div class="animation">
-    <canvas></canvas>
+    </section>
   </div>
   <script type="application/javascript" src="bundle.js"></script>
 </body>

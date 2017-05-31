@@ -80,11 +80,12 @@ ul {
 /* Drop Down Menu */
 #sounds{
   background-color: rgb(25, 25, 25);
-  height: 50px;
+  height: 92px;
   color: white;
-  width: 335px;
-  margin-top: 60px;
-  font-size: 1rem;
+  width: 461px;
+  margin-top: 90px;
+  font-size: 0.8rem;
+  font-family: Helvetica, sans-serif;
 }
 
 
@@ -104,7 +105,7 @@ ul {
   font-size: 2rem;
   -webkit-text-stroke-width: 6px;
   -webkit-text-stroke-color: gold;
-  font-family: 'Futura', sans-serif;
+  font-family: 'Helvetica', sans-serif;
   text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em gold, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444;
    animation: blink linear infinite 5s;
 }
