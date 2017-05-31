@@ -26,6 +26,7 @@
 
 /* Keyboard */
 html, body {
+  background-color: black;
   font-family: Helvetica, sans-serif;
   font-size: 2.5vmin;
   margin: 0 auto;
@@ -57,7 +58,7 @@ ul {
   border: 3px solid white;
   width: 60px;
   height: 60px;
-  border-radius: 7px;
+  border-radius: 9px;
   margin: 5px;
   display: flex;
   justify-content: center;
@@ -77,10 +78,12 @@ ul {
 /* Drop Down Menu */
 #sounds, #visuals{
   height: 92px;
-  width: 461px;
+  width: 423px;
   margin-top: 90px;
   font-size: 0.8rem;
   font-family: Helvetica, sans-serif;
+  background-color: black;
+  color: white;
 }
 
 #visuals{
@@ -91,11 +94,13 @@ ul {
 /* SYNTHWAVE title */
 
 .title {
+  /*display: none;*/
   margin-top: 80px;
   width: 433px;
   height: 180px;
+  border-radius: 8px;
   /*border: 15px double rgb(0, 150, 255);*/
-  box-shadow: -1px 0px 106px 1px rgb(0, 150, 255);
+  box-shadow: -1px 0px 106px 1px #008F95;
   line-height: 120px;
 }
 
@@ -103,9 +108,9 @@ ul {
   color: transparent;
   font-size: 2rem;
   -webkit-text-stroke-width: 6px;
-  -webkit-text-stroke-color: gold;
+  -webkit-text-stroke-color: #E9C904;
   font-family: 'Helvetica', sans-serif;
-  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em gold, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #E9C904, 0 0 0.5em #E9C904, 0 0 0.1em #E9C904;
    animation: blink linear infinite 5s;
 }
 
@@ -146,31 +151,31 @@ ul {
 }
 
 .green {
-  border-color: #E24E42;
-  color: #E24E42;
+  border-color: #FE65B7;
+  color: #FE65B7;
 }
 
 .green.active {
-  background-color: #E24E42;
+  background-color: #FE65B7;
 }
 
 
 .pink {
-  border-color: #E9B000;
-  color: #E9B000;
+  border-color: #E9C904;
+  color: #E9C904;
 }
 
 .pink.active {
-  background-color: #E9B000;
+  background-color: #E9C904;
 }
 
 .purple {
-  border-color: #E86E80;
-  color: #E86E80;
+  border-color: #8FC33A;
+  color: #8FC33A;
 }
 
 .purple.active {
-  background-color: #E86E80;
+  background-color: #8FC33A;
 }
 
 
