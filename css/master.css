@@ -77,7 +77,7 @@ ul {
 
 /* Keyboard Animation */
 
-.key.active{
+.key.active, .key:active{
   /*background: #00ffc7;*/
 
   -webkit-transition: 0s;
