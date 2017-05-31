@@ -3,9 +3,11 @@ const Synth = require("./lib/synth");
 const Audio = require("./lib/audio");
 
 document.addEventListener("DOMContentLoaded", function(){
+  // Keyboard Animation
   const keyboard = document.getElementById("keyboard");
   const animation = new KeyboardAnimation(keyboard);
 
+  // Audio
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   const selected_sound = document.getElementById("sounds");
   let chosenInstrument = new Synth({isPluckySound: true});
@@ -27,4 +29,9 @@ document.addEventListener("DOMContentLoaded", function(){
         return chosenInstrument = new Synth({isPluckySound: true});
     }
   }
+
+  // Audio Visualization
+  window.canvas = document.getElementById("visualization");
+  window.canvasContext = canvas.getContext("2d");
+
 });
