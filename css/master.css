@@ -58,10 +58,9 @@ ul {
   height: 60px;
   border-radius: 7px;
   margin: 5px;
-  line-height: 7.5vmin;
-  /*color: white;*/
-  /*border-color: rgb(255, 0, 75);
-  color: rgb(255, 0, 75);*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   -webkit-transition: .5s;
   -moz-transition: .5s;
@@ -74,6 +73,15 @@ ul {
   width: 500px;
 }
 
+/* Drop Down Menu */
+#sounds{
+  background-color: rgb(25, 25, 25);
+  height: 50px;
+  color: white;
+  width: 335px;
+  margin-top: 60px;
+  font-size: 1rem;
+}
 
 /* Keyboard Animation */
 
