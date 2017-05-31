@@ -96,17 +96,16 @@ ul {
 .title {
   /*display: none;*/
   margin-top: 80px;
-  width: 433px;
-  height: 180px;
+  width: 726px;
   border-radius: 8px;
   /*border: 15px double rgb(0, 150, 255);*/
   box-shadow: -1px 0px 106px 1px #008F95;
-  line-height: 120px;
+  line-height: 140px;
 }
 
 .title p {
   color: transparent;
-  font-size: 2rem;
+  font-size: 4rem;
   -webkit-text-stroke-width: 6px;
   -webkit-text-stroke-color: #E9C904;
   font-family: 'Helvetica', sans-serif;
