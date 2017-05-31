@@ -1,5 +1,4 @@
 /* Reset */
-
  html, body, div, h1, h2, h3, p, ol, ul, li,
  canvas, details, embed, figure, footer, header,
  section, audio, video {
@@ -146,38 +145,40 @@ ul {
   background-color: rgb(255, 0, 75);*/
 }
 
-.purple {
-  border-color: rgb(150, 0, 255);
-  color: rgb(150, 0, 255);
-}
-
-.purple.active {
-  background-color: rgb(150, 0, 255);
-}
-
-.pink {
-  border-color: rgb(255, 0, 75);
-  color: rgb(255, 0, 75);
-}
-
-.pink.active {
-  background-color: rgb(255, 0, 75);
-}
-
 .green {
-  border-color: rgb(0, 255, 100);
-  color: rgb(0, 255, 100);
+  border-color: #E24E42;
+  color: #E24E42;
 }
 
 .green.active {
-  background-color: rgb(0, 255, 100);
+  background-color: #E24E42;
 }
 
+
+.pink {
+  border-color: #E9B000;
+  color: #E9B000;
+}
+
+.pink.active {
+  background-color: #E9B000;
+}
+
+.purple {
+  border-color: #E86E80;
+  color: #E86E80;
+}
+
+.purple.active {
+  background-color: #E86E80;
+}
+
+
 .blue {
-  border-color: rgb(0, 150, 255);
-  color: rgb(0, 150, 255);
+  border-color: #008F95;
+  color: #008F95;
 }
 
 .blue.active {
-  background-color: rgb(0, 150, 255);
+  background-color: #008F95;
 }
