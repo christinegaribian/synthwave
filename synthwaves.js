@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function(){
   selected_sound.onchange = (e) => {
     const options = e.srcElement.options;
     const chosenInstrumentName = options[options.selectedIndex].innerHTML;
-    // if(chosenInstrument){
-    //   chosenInstrument.destroy
-    // }
+    if(chosenInstrument){
+      chosenInstrument.destroy
+    }
 
-    // const chosenInstrument = null;
+    const chosenInstrument = null;
     switch(chosenInstrumentName){
       case 'Computer-Generated Synth':
         return new Synth();

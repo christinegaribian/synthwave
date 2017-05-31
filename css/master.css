@@ -35,6 +35,8 @@ html, body {
   text-align: center;
   height: 100%;
   width: 100%;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 auto;
 }
 
 ul {
@@ -54,11 +56,18 @@ ul {
   border: 1px solid white;
   width: 60px;
   height: 60px;
-  border-radius: 13px;
+  border-radius: 7px;
   margin: 5px;
   line-height: 7.5vmin;
+  /*color: white;*/
+  /*border-color: rgb(255, 0, 75);
+  color: rgb(255, 0, 75);*/
 
-
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  transition: .5s;
 }
 
 .space {
@@ -69,12 +78,51 @@ ul {
 /* Keyboard Animation */
 
 .key.active{
-  background: #00ffc7;
-  /*border: white;
+  /*background: #00ffc7;*/
 
   -webkit-transition: 0s;
   -moz-transition: 0s;
   -ms-transition: 0s;
-  transition: 0s;
+  transition: 0.1s;
   transform: scale(1.15);
+  color: rgb(75, 75, 75);
+
+  /*color: rgb(75, 75, 75);
+  background-color: rgb(255, 0, 75);*/
+}
+
+.purple {
+  border-color: rgb(150, 0, 255);
+  color: rgb(150, 0, 255);
+}
+
+.purple.active {
+  background-color: rgb(150, 0, 255);
+}
+
+.pink {
+  border-color: rgb(255, 0, 75);
+  color: rgb(255, 0, 75);
+}
+
+.pink.active {
+  background-color: rgb(255, 0, 75);
+}
+
+.green {
+  border-color: rgb(0, 255, 100);
+  color: rgb(0, 255, 100);
+}
+
+.green.active {
+  background-color: rgb(0, 255, 100);
+}
+
+.blue {
+  border-color: rgb(0, 150, 255);
+  color: rgb(0, 150, 255);
+}
+
+.blue.active {
+  background-color: rgb(0, 150, 255);
 }
