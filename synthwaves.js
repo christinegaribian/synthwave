@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   const selected_sound = document.getElementById("sounds");
-  let chosenInstrument = null;
+  let chosenInstrument = new Synth({isPluckySound: true});
 
 
   selected_sound.onchange = (e) => {
