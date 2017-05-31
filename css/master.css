@@ -27,7 +27,7 @@
 
 /* Keyboard */
 html, body {
-  font-family: Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 2.5vmin;
   margin: 0 auto;
   background: rgb(25, 25, 25);
@@ -37,6 +37,10 @@ html, body {
   width: 100%;
   -webkit-font-smoothing: antialiased;
   margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 ul {
@@ -81,6 +85,48 @@ ul {
   width: 335px;
   margin-top: 60px;
   font-size: 1rem;
+}
+
+
+/* SYNTHWAVE title */
+
+.title {
+  margin-top: 80px;
+  width: 433px;
+  height: 180px;
+  border: 15px double rgb(0, 150, 255);
+  box-shadow: -1px 0px 106px 1px rgb(0, 150, 255);
+  line-height: 120px;
+}
+
+.title p {
+  color: transparent;
+  font-size: 2rem;
+  -webkit-text-stroke-width: 6px;
+  -webkit-text-stroke-color: gold;
+  font-family: 'Futura', sans-serif;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em gold, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444;
+   animation: blink linear infinite 5s;
+}
+
+@keyframes blink {
+0% { opacity: 0; }
+
+  // flicker
+  5%  { opacity: 0; }
+  6% { opacity: 1; }
+  11% { opacity: .4; }
+  11.25% { opacity: .6; }
+  11.5% { opacity: .4; }
+  18% { opacity: 1; }
+  18.5% { opacity: .9; }
+  22% { opacity: 1; }
+
+  73% { opacity: 1; }
+  75% { opacity: .8; }
+  79% { opacity: 1; }
+
+  100% { opacity: 1; }
 }
 
 /* Keyboard Animation */
