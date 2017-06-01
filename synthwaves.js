@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
   let chosenInstrument;
-  //  = new Synth({visualizer: 'wavelength', isPluckySound: true});
   let visualizer;
   let chosenInstrumentName;
 
@@ -57,26 +56,4 @@ document.addEventListener("DOMContentLoaded", function(){
   selectedVisualization.onchange = (e) => {
     selectedSound.onchange(e);
   }
-
-
-
-  // let chosenVisualization = new Visualization({isPluckySound: true});
-  //
-  // selectedVisualization.onchange = (e) => {
-  //   const options = e.srcElement.options;
-  //   const chosenVisualizationName = options[options.selectedIndex].innerHTML;
-  //   if(chosenVisualization){
-  //     chosenVisualization.destroy();
-  //   }
-  //
-  //   switch(chosenVisualizationName){
-  //     case 'Computer-Generated Synth':
-  //       return chosenVisualization = new Synth();
-  //     case 'Bird':
-  //       return chosenVisualization = new Bird();
-  //     case 'Plucky Synth':
-  //       return chosenVisualization = new Synth({isPluckySound: true});
-  //   }
-  // }
-
 });
