@@ -1,7 +1,10 @@
 const KeyboardAnimation = require("./lib/keyboardAnimation");
 const Synth = require("./lib/synth");
+// const Bird = require("./lib/bird");
+const BIRDS = require("./lib/birds");
 const Audio = require("./lib/audio");
 const INSTRUMENTS = ['synth', 'plucky', 'bird'];
+
 document.addEventListener("DOMContentLoaded", function(){
   // Keyboard Animation
   const keyboard = document.getElementById("keyboard");
@@ -17,7 +20,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-  let chosenInstrument = new Synth({visualizer: 'wavelength', isPluckySound: true});
+  let chosenInstrument = new Synth({
+    visualizer: 'wavelength',
+    isPluckySound: true
+  });
+
   let visualizer;
   let chosenInstrumentName;
 
@@ -43,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function(){
       case 'synth':
         return chosenInstrument = new Synth({visualizer: visualizer, isPluckySound: false});
       case 'bird':
-        return chosenInstrument = new Bird();
+        return chosenInstrument = new Audio(BIRDS);
       case 'plucky':
         return chosenInstrument = new Synth({visualizer: visualizer, isPluckySound: true});
       default:
