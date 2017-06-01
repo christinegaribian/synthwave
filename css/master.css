@@ -79,7 +79,7 @@ ul {
 #sounds, #visuals{
   height: 92px;
   width: 423px;
-  margin-top: 90px;
+  margin-top: 6%;
   font-size: 0.8rem;
   font-family: Helvetica, sans-serif;
   background-color: black;
@@ -95,17 +95,17 @@ ul {
 
 .title {
   /*display: none;*/
-  margin-top: 80px;
-  width: 726px;
+  margin-top: 5%;
+  width: 41%;
   border-radius: 8px;
   /*border: 15px double rgb(0, 150, 255);*/
   box-shadow: -1px 0px 106px 1px #008F95;
-  line-height: 140px;
+  line-height: 11vmin;
 }
 
 .title p {
   color: transparent;
-  font-size: 4rem;
+  font-size: 3rem;
   -webkit-text-stroke-width: 6px;
   -webkit-text-stroke-color: #E9C904;
   font-family: 'Helvetica', sans-serif;
