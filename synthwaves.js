@@ -17,13 +17,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-  let chosenInstrument;
+  let chosenInstrument = new Synth({visualizer: 'wavelength', isPluckySound: true});
   let visualizer;
   let chosenInstrumentName;
 
   selectedSound.onchange = (e) => {
     if(e.target.id == 'visuals'){
-      console.log(e.target.id);
       visualizer = e.target.value;
       if(INSTRUMENTS.includes(chosenInstrumentName)){
         chosenInstrument.destroy();
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function(){
         visualizer = 'wavelength';
       }
       chosenInstrumentName = e.target.value;
-      console.log(chosenInstrumentName);
 
 
     }
