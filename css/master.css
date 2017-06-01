@@ -47,8 +47,7 @@ ul {
 }
 
 .keyboard-wrapper {
-  height: 100%;
-  width: 100%;
+  margin: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,11 +74,28 @@ ul {
   width: 500px;
 }
 
+
+/*
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}*/
+
+.options {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+
 /* Drop Down Menu */
 #sounds, #visuals{
-  height: 92px;
-  width: 423px;
-  margin-top: 6%;
+  height: 39px;
+  width: 200px;
   font-size: 0.8rem;
   font-family: Helvetica, sans-serif;
   background-color: black;
@@ -91,11 +107,43 @@ ul {
 }
 
 
+
+/* Personal Links */
+.personal-info {
+  font-size: 40px;
+  width: 21%;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.fa.fa-github {
+  color: #FE65B7;
+}
+
+.fa.fa-linkedin-square {
+  color: #E9C904;
+}
+
+.fa.fa-user-circle {
+  color: #8FC33A;
+}
+
+.fa.fa-github:hover,
+.fa.fa-linkedin-square:hover,
+.fa.fa-user-circle:hover {
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  transition: 0.1s;
+  transform: scale(1.15);
+}
+
 /* SYNTHWAVE title */
 
 .title {
   /*display: none;*/
-  margin-top: 5%;
+  margin: 53px;
   width: 41%;
   border-radius: 8px;
   /*border: 15px double rgb(0, 150, 255);*/

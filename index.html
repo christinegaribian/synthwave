@@ -3,24 +3,34 @@
 <head>
   <meta charset="utf-8">
   <title>SYNTHWAVE</title>
+  <script src="https://use.fontawesome.com/0dc58fe6c9.js"></script>
   <link rel="stylesheet" href="css/master.css">
 </head>
 <body>
+
   <div class="title">
     <p>SYNTHWAVE</p>
   </div>
-  <select id="sounds">
-    <option disabled selected>Select soundscape:</option>
-    <option value="synth">Computer-Generated Synth</option>
-    <option value="plucky">Plucky Synth</option>
-    <option value="bird">Bird</option>
-  </select>
-  <select id="visuals">
-    <option disabled selected>Select visualizer:</option>
-    <option value="wavelength">Wavelength</option>
-    <option value="frequency">Frequency</option>
-  </select>
-  <canvas id="visualization" width=423px height=146px></canvas>
+
+
+    <div class="options">
+      <select id="sounds">
+        <option disabled selected>Select soundscape:</option>
+        <option value="synth">Computer-Generated Synth</option>
+        <option value="plucky">Plucky Synth</option>
+        <option value="bird">Bird</option>
+      </select>
+      <canvas id="visualization" width=535px height=200px></canvas>
+
+      <select id="visuals">
+        <option disabled selected>Select visualizer:</option>
+        <option value="wavelength">Wavelength</option>
+        <option value="frequency">Frequency</option>
+      </select>
+    </div>
+
+
+
   <div class="keyboard-wrapper">
     <section id="keyboard">
       <ul class="keyboard-row">
@@ -68,6 +78,25 @@
 
     </section>
   </div>
+
+  <div class="personal-info">
+    <a href="https://github.com/christinegaribian/synthwaves"
+    title="Github"
+    target="_blank">
+    <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/christinegaribian/"
+    target="_blank"
+    title="LinkedIn" >
+      <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+    </a>
+
+    <a href="#" title="Personal Site">
+      <i class="fa fa-user-circle" aria-hidden="true"></i>
+    </a>
+  </div>
+
   <script type="application/javascript" src="bundle.js"></script>
-</body>
+  </body>
 </html>
