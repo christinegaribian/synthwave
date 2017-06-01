@@ -17,35 +17,42 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-  let chosenInstrument = new Synth();
+  let chosenInstrument = new Synth({visualizer: 'wavelength', isPluckySound: true});
   let visualizer;
+  let chosenInstrumentName;
 
   selectedSound.onchange = (e) => {
     if(e.target.id == 'visuals'){
       visualizer = e.target.value;
+
     } else {
       // visualizer = 'wavelength';
       visualizer = selectedVisualization
                   .options[selectedVisualization.selectedIndex]
                   .innerHTML.toLowerCase();
-                  console.log(visualizer);
+                  // console.log(visualizer);
       // console.log(selectedVisualization.options[selectedVisualization.selectedIndex]);
       if (!['frequency', 'wavelength'].includes(visualizer)){
         visualizer = 'frequency';
       }
-    }
-    const chosenInstrumentName = e.target.value;
-    if(chosenInstrument){
-      chosenInstrument.destroy();
+      chosenInstrumentName = e.target.value;
+      // console.log("chosen instrument");
+      // console.log(chosenInstrumentName);
+      if(chosenInstrument){
+        chosenInstrument.destroy();
+      }
     }
 
+
+    // console.log("in synthwaves: ");
+    // console.log(visualizer);
     switch(chosenInstrumentName){
       case 'synth':
-        return chosenInstrument = new Synth(visualizer, false);
+        return chosenInstrument = new Synth({visualizer: visualizer, isPluckySound: false});
       case 'bird':
         return chosenInstrument = new Bird();
       case 'plucky':
-        return chosenInstrument = new Synth(visualizer);
+        return chosenInstrument = new Synth({visualizer: visualizer, isPluckySound: true});
     }
   }
 
