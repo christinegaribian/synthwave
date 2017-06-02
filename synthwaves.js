@@ -36,8 +36,6 @@ document.addEventListener("DOMContentLoaded", function(){
         visualizer = 'wavelength';
       }
       chosenInstrumentName = e.target.value;
-
-
     }
 
     if(INSTRUMENTS.includes(chosenInstrumentName)){
