@@ -16,6 +16,9 @@
     "webpack-dev-server": "^2.4.5"
   },
   "devDependencies": {},
+  "engines": {
+    "node": "4.2.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --inline",
