@@ -76,8 +76,8 @@ playNote(code){
 
 
 ## Future Plans
-- [ ] **Add different sound sets, such human choir, hip hop beats, and dreamy 80s synth**
-- [ ] **Allow users to save and share their samples**
-- [ ] **Allow users to import sounds**
-- [ ] **Add a drum sequencer**
-- [ ] **Add controls for delay, tempo, cutoff, distortion, resonance, reverb, release, and attack**
+- [ ] Add different sound sets, such human choir, hip hop beats, and dreamy 80s synth
+- [ ] Allow users to save and share their samples
+- [ ] Allow users to import sounds
+- [ ] Add a drum sequencer
+- [ ] Add controls for delay, tempo, cutoff, distortion, resonance, reverb, release, and attack

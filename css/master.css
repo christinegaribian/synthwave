@@ -117,6 +117,10 @@ header {
   margin: 3%;
 }
 
+
+.fa {
+  transition: 0.1s ease-in-out;
+}
 .fa.fa-github {
   color: #FE65B7;
 }
@@ -129,13 +133,11 @@ header {
   color: #8FC33A;
 }
 
-.fa.fa-github:hover,
-.fa.fa-linkedin-square:hover,
-.fa.fa-user-circle:hover {
+.fa:hover {
   -webkit-transition: 0.2s;
   -moz-transition: 0.2s;
   -ms-transition: 0.2s;
-  transition: 0.1s;
+  transition-timing-function: ease-in-out;
   transform: scale(1.15);
 }
 

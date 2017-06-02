@@ -158,16 +158,9 @@ class Visualization{
     let x = 0;
 
     for(let i = 0; i < bufferLength; i++) {
-
       let v = dataArray[i] / 128.0;
       let y = v * this.canvasHeight/2;
-      //
-      // if(i === 0) {
-      //   canvasContext.moveTo(x, y);
-      // } else {
         canvasContext.lineTo(x, y);
-      // }
-
       x += sliceWidth;
     }
 
@@ -400,7 +393,7 @@ class Synth{
 
   handleKeyDown(e){
       const keyCode = e.keyCode;
-      if (!NOTES[e.keyCode]){
+      if (!NOTES[keyCode]){
         return;
       }
       if(!this.notesPlaying[keyCode]){
@@ -511,8 +504,6 @@ class Note{
   }
 
   playNote(code){
-    // Handle notes outside of the keyboard displayed on screen
-    // console.log("plyaing note");
     const freq = this.mapKeycodeToFrequency(code);
     this.source = this.audioContext.createOscillator();
 
@@ -529,30 +520,19 @@ class Note{
 
     // Set the reverb
     this.convolver = this.audioContext.createConvolver();
-    // this.convolver.buffer = concertHallBuffer;
 
     // Set the lowpass
     this.biquad = this.audioContext.createBiquadFilter();
     this.biquad.type = "lowpass";
     this.biquad.q = 25;
-    // this.biquad.gain.value = 25;
-    // this.biquad.frequency.value = 1000;
-
 
     // Visualize frequency data
     this.analyser = this.audioContext.createAnalyser();
-    // const bufferLength = this.analyser.frequencyBinCount;
-    // const dataArray = new Uint8Array(bufferLength);
     this.visualization = new Visualization({
       analyser: this.analyser,
       visualizer: this.visualizer
     });
     this.visualization.draw();
-
-    // this.analyser.minDecibels = -90;
-    // this.analyser.maxDecibels = -10;
-    // this.analyser.smoothingTimeConstant = 0.65;
-    // this.analyser.fftSize = 512;
 
     // Set the distortion
     // this.distortion = this.audioContext.createWaveShaper();
