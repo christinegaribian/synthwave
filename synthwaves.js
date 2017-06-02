@@ -24,14 +24,10 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
   let visualizer;
-  let chosenInstrumentName;
-
+  let chosenInstrumentName = 'synth';
   selectedSound.onchange = (e) => {
     if(e.target.id == 'visuals'){
       visualizer = e.target.value;
-      if(INSTRUMENTS.includes(chosenInstrumentName)){
-        chosenInstrument.destroy();
-      }
     } else {
       visualizer = selectedVisualization
                   .options[selectedVisualization.selectedIndex]
@@ -44,11 +40,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
+    if(INSTRUMENTS.includes(chosenInstrumentName)){
+      chosenInstrument.destroy();
+    }
     switch(chosenInstrumentName){
       case 'synth':
         return chosenInstrument = new Synth({visualizer: visualizer, isPluckySound: false});
       case 'bird':
-        return chosenInstrument = new Audio(BIRDS['BIRD_SOUNDS']);
+        return chosenInstrument = new Audio({sounds: BIRDS['BIRD_SOUNDS'], visualizer: visualizer});
       case 'plucky':
         return chosenInstrument = new Synth({visualizer: visualizer, isPluckySound: true});
       default:
