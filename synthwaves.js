@@ -1,6 +1,5 @@
 const KeyboardAnimation = require("./lib/keyboardAnimation");
 const Synth = require("./lib/synth");
-// const Bird = require("./lib/bird");
 const BIRDS = require("./lib/birds");
 const Audio = require("./lib/audio");
 const INSTRUMENTS = ['synth', 'plucky', 'bird'];
