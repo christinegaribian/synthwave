@@ -18,8 +18,6 @@ document.addEventListener("DOMContentLoaded", function(){
   window.canvas = document.getElementById("visualization");
   window.canvasContext = canvas.getContext("2d");
 
-
-
   let chosenInstrument = new Synth({
     visualizer: 'wavelength',
     isPluckySound: true
@@ -50,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
       case 'synth':
         return chosenInstrument = new Synth({visualizer: visualizer, isPluckySound: false});
       case 'bird':
-        return chosenInstrument = new Audio(BIRDS);
+        return chosenInstrument = new Audio(BIRDS['BIRD_SOUNDS']);
       case 'plucky':
         return chosenInstrument = new Synth({visualizer: visualizer, isPluckySound: true});
       default:
