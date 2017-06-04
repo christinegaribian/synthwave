@@ -1,7 +1,7 @@
 # Synthwave
-## [LIVE](https://christinegaribian.github.io/synthwaves/)
+## [LIVE](https://christinegaribian.github.io/synthwave/)
 
-Synthwave is a basic polyphonic synthesizer that generates sounds from the pentatonic scale, one of humanity's most [fascinatingly widespread](https://www.youtube.com/watch?v=ne6tB2KiZuk) musical constructs.
+Synthwave is a polyphonic synthesizer that generates sounds from the pentatonic scale, one of humanity's most [fascinatingly widespread](https://www.youtube.com/watch?v=ne6tB2KiZuk) musical constructs. It is also a sample player, and audio data visualizer.
 
 Users can play different notes by pressing different keys. Each keypress generates a unique mapping to a frequency, which is then
 used to create an oscillator with Web Audio API. Different filters are applied
