@@ -72,8 +72,6 @@ playNote(code){
 
 ```
 
-#### Visualization
-
 
 ## Future Plans
 - [ ] Add different sound sets, such human choir, hip hop beats, and dreamy 80s synth
