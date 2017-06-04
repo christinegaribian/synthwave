@@ -74,16 +74,6 @@ ul {
   width: 500px;
 }
 
-
-/*
-
-
-header {
-  display: flex;
-  justify-content: space-between;
-  width: 95%;
-}*/
-
 .options {
   display: flex;
   justify-content: space-around;
@@ -144,18 +134,12 @@ header {
 /* SYNTHWAVE title */
 
 .title {
-  /*display: none;*/
   margin: 5%;
-  width: 35%;
-  border-radius: 28px;
-  /*border: 15px double rgb(0, 150, 255);*/
-  box-shadow: -1px 0px 106px 1px #008F95;
-  line-height: 11vmin;
 }
 
 .title p {
   color: transparent;
-  font-size: 6vmin;
+  font-size: 11vmin;
   -webkit-text-stroke-width: 6px;
   -webkit-text-stroke-color: #E9C904;
   font-family: 'Helvetica', sans-serif;
@@ -186,17 +170,12 @@ header {
 /* Keyboard Animation */
 
 .key.active, .key:active{
-  /*background: #00ffc7;*/
-
   -webkit-transition: 0s;
   -moz-transition: 0s;
   -ms-transition: 0s;
   transition: 0.1s;
   transform: scale(1.15);
   color: rgb(75, 75, 75);
-
-  /*color: rgb(75, 75, 75);
-  background-color: rgb(255, 0, 75);*/
 }
 
 .green {
