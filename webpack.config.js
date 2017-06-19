@@ -4,6 +4,7 @@ module.exports = {
   entry: "./synthwaves.js",
   output: {
     path: path.resolve(__dirname),
+    publicPath: "/",
   	filename: "bundle.js"
   },
   devtool: 'source-maps',
