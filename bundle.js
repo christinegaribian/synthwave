@@ -119,6 +119,7 @@ class Visualization{
   constructor(options){
     this.analyser = options.analyser;
     this.canvasWidth = canvas.width;
+
     this.canvasHeight = canvas.height;
     this.visualizer = options.visualizer;
 
