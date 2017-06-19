@@ -82,10 +82,8 @@ ul {
   width: 100%;
 }
 
-/* Visualization */
-#visualizatio {
-  width: 100%;
-  height: 30%;
+/* Audio visualization canvas element */
+#visualizer {
   z-index: 0;
 }
 
