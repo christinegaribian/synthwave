@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = ".";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 8);
@@ -307,13 +307,13 @@ module.exports = Audio;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 const BIRD_SOUNDS = [
-  '../assets/birds/mexican_parrot.mp3',
-  '../assets/birds/chicken_laying_egg.mp3',
-  '../assets/birds/lark.mp3',
-  '../assets/birds/lorie.mp3',
-  '../assets/birds/canary.mp3',
-  '../assets/birds/owl.mp3',
-  '../assets/birds/rooster.mp3'
+  './assets/birds/mexican_parrot.mp3',
+  './assets/birds/chicken_laying_egg.mp3',
+  './assets/birds/lark.mp3',
+  './assets/birds/lorie.mp3',
+  './assets/birds/canary.mp3',
+  './assets/birds/owl.mp3',
+  './assets/birds/rooster.mp3'
 ];
 /* harmony export (immutable) */ __webpack_exports__["BIRD_SOUNDS"] = BIRD_SOUNDS;
 
