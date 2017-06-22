@@ -166,6 +166,9 @@ class Audio{
     const birdIndex = this.mapKeycodeToBufferIndex(keyCode);
     this.source = this.audioContext.createBufferSource();
     this.source.buffer = this.bufferLoader.bufferList[birdIndex];
+    
+    this.gain = this.audioContext.createGain();
+    this.gain.gain.value = 0.3;
 
     this.analyser = this.audioContext.createAnalyser();
     this.visualization = new Visualization({
@@ -174,17 +177,18 @@ class Audio{
     });
     this.visualization.draw();
 
-    this.source.connect(this.analyser);
+    this.source.connect(this.gain);
+    this.gain.connect(this.analyser);
     this.analyser.connect(this.audioContext.destination);
     this.source.start(0);
   }
 
   mapKeycodeToBufferIndex(keycode){
-    if (keycode == 32)
+    if (keycode == 32){
       return this.sounds.length - 1 
-    else 
+    } else { 
       return keycode % this.sounds.length;
-    end 
+    }
   }
 
   destroy(){
@@ -500,7 +504,7 @@ class Visualization{
     canvasContext.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
 
 
-    let barWidth = (this.canvasWidth / bufferLength)*2.5;
+    let barWidth = (this.canvasWidth / bufferLength)*5;
     let barHeight;
     let x = 0;
 
@@ -508,8 +512,8 @@ class Visualization{
       barHeight = dataArray[i];
 
       // canvasContext.fillStyle = 'white';
-      canvasContext.fillStyle = 'rgb(0,' + (barHeight+100) + ',149)';
-      canvasContext.fillRect(x,0,barWidth,barHeight);
+      canvasContext.fillStyle = 'rgb(0,' + (barHeight) + ',159)';
+      canvasContext.fillRect(x,this.canvasHeight + 10 - barHeight,barWidth,barHeight);
 
       x += barWidth + 1;
     }

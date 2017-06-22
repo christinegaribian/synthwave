@@ -139,7 +139,8 @@ ul {
 /* SYNTHWAVE title */
 
 .title {
-  margin: 5%;
+  margin-bottom: 3vh;
+  margin-top: 4vh;
 }
 
 .title p {
