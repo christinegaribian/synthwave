@@ -499,6 +499,7 @@ class Visualization{
     canvasContext.fillStyle = 'black';
     canvasContext.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
 
+
     let barWidth = (this.canvasWidth / bufferLength)*2.5;
     let barHeight;
     let x = 0;
@@ -506,7 +507,8 @@ class Visualization{
     for(let i = 0; i < bufferLength; i++) {
       barHeight = dataArray[i];
 
-      canvasContext.fillStyle = 'white';
+      // canvasContext.fillStyle = 'white';
+      canvasContext.fillStyle = 'rgb(0,' + (barHeight+100) + ',149)';
       canvasContext.fillRect(x,0,barWidth,barHeight);
 
       x += barWidth + 1;
