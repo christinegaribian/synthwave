@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function(){
   window.canvas = document.getElementById("visualization");
   window.canvasContext = canvas.getContext("2d");
 
-  let chosenInstrument = new Synth({
-    visualizer: 'wavelength',
-    isPluckySound: true
+  let chosenInstrument = new Audio({
+    sounds: BIRDS['BIRD_SOUNDS'], 
+    visualizer: 'frequency'
   });
 
   let visualizer;
