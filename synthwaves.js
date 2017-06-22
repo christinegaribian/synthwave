@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
   let visualizer;
-  let chosenInstrumentName = 'synth';
+  let chosenInstrumentName = 'bird';
   selectedSound.onchange = (e) => {
     if(e.target.id == 'visuals'){
       visualizer = e.target.value;
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(){
       }
       chosenInstrumentName = e.target.value;
     }
-
+    console.log(visualizer)
     if(INSTRUMENTS.includes(chosenInstrumentName)){
       chosenInstrument.destroy();
     }

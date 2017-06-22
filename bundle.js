@@ -150,7 +150,7 @@ class Visualization{
     canvasContext.fillStyle = 'black';
     canvasContext.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
 
-    canvasContext.lineWidth = 2;
+    canvasContext.lineWidth = 1;
     canvasContext.strokeStyle = 'white';
 
     canvasContext.beginPath();
@@ -241,7 +241,6 @@ class Audio{
   handleKeyDown(e){
     if (!this.keyDown){
       this.keyDown = true;
-      debugger 
       this.playSound(e.keyCode);
     }
   }
@@ -273,6 +272,7 @@ class Audio{
     this.gain.gain.value = 0.3;
 
     this.analyser = this.audioContext.createAnalyser();
+    this.analyser.smoothingTimeConstant = 0.8;
     this.visualization = new Visualization({
       analyser: this.analyser,
       visualizer: this.visualizer
@@ -610,7 +610,7 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
   let visualizer;
-  let chosenInstrumentName = 'synth';
+  let chosenInstrumentName = 'bird';
   selectedSound.onchange = (e) => {
     if(e.target.id == 'visuals'){
       visualizer = e.target.value;
@@ -623,7 +623,7 @@ document.addEventListener("DOMContentLoaded", function(){
       }
       chosenInstrumentName = e.target.value;
     }
-
+    console.log(visualizer)
     if(INSTRUMENTS.includes(chosenInstrumentName)){
       chosenInstrument.destroy();
     }
