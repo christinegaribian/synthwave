@@ -451,7 +451,7 @@ class Visualization{
 
   drawWavelength(){
     this.analyser.fftSize= 2048;
-    let bufferLength = this.analyser.fftSize;
+    let bufferLength = this.analyser.frequencyBinCount;
     let dataArray = new Uint8Array(bufferLength);
 
     canvasContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
@@ -473,7 +473,11 @@ class Visualization{
     for(let i = 0; i < bufferLength; i++) {
       let v = dataArray[i] / 128.0;
       let y = v * this.canvasHeight/2;
+      if (i === 0){
+        canvasContext.moveTo(x, y);
+      } else {
         canvasContext.lineTo(x, y);
+      }
       x += sliceWidth;
     }
 
@@ -495,15 +499,15 @@ class Visualization{
     canvasContext.fillStyle = 'black';
     canvasContext.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
 
-    let barWidth = (this.canvasWidth / bufferLength)*2;
+    let barWidth = (this.canvasWidth / bufferLength)*2.5;
     let barHeight;
-    let x = 70;
+    let x = 0;
 
     for(let i = 0; i < bufferLength; i++) {
-      barHeight = dataArray[i]*0.8;
+      barHeight = dataArray[i];
 
       canvasContext.fillStyle = 'white';
-      canvasContext.fillRect(x,this.canvasHeight-barHeight/2,barWidth,barHeight);
+      canvasContext.fillRect(x,0,barWidth,barHeight);
 
       x += barWidth + 1;
     }
