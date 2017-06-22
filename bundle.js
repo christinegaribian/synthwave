@@ -540,6 +540,7 @@ const Audio = __webpack_require__(1);
 const INSTRUMENTS = ['synth', 'plucky', 'bird'];
 
 document.addEventListener("DOMContentLoaded", function(){
+
   // Keyboard Animation
   const keyboard = document.getElementById("keyboard");
   const animation = new KeyboardAnimation(keyboard);
@@ -590,6 +591,14 @@ document.addEventListener("DOMContentLoaded", function(){
   selectedVisualization.onchange = (e) => {
     selectedSound.onchange(e);
   }
+
+  // Add listener for modal close 
+    const modalClose = document.getElementById("modal-close");
+    const modal = document.getElementById("instructions");
+
+    modalClose.addEventListener("click", () => {
+      modal.className = "hidden"
+    })
 });
 
 
