@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = ".";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -226,7 +226,8 @@ module.exports = Visualization;
 /***/ (function(module, exports, __webpack_require__) {
 
 const BufferLoader = __webpack_require__(6);
-const Visualization = __webpack_require__(1);
+// const Visualization = require('./visualization');
+const Sound = __webpack_require__(8);
 
 class Audio{
   constructor(options){
@@ -238,6 +239,7 @@ class Audio{
     this.handleKeyUp = this.handleKeyUp.bind(this);
     this.destroy = this.destroy.bind(this);
 
+    this.notesPlaying = {};
     this.audioContext = new AudioContext();
     this.loadAllSounds.bind(this)();
 
@@ -247,16 +249,22 @@ class Audio{
 
 
   handleKeyDown(e){
-    if (!this.keyDown){
+    const keyCode = e.keyCode;
+    if(!this.notesPlaying[keyCode]){
       this.keyDown = true;
-      this.playSound(e.keyCode);
+      this.notesPlaying[keyCode] = this.playSound(keyCode);
     }
+    // if (!this.keyDown){
+    //   this.keyDown = true;
+    //   this.playSound(e.keyCode);
+    // }
   }
 
   handleKeyUp(e){
-    this.source.stop(1);
+    this.notesPlaying[e.keyCode].stop(1);
+    delete this.notesPlaying[e.keyCode];
+    // this.source.stop(1);
     this.keyDown = false;
-
   }
 
   loadAllSounds(){
@@ -272,34 +280,35 @@ class Audio{
 
   playSound(keyCode){
     // For ech sound, create and connect a buffer source
-    const birdIndex = this.mapKeycodeToBufferIndex(keyCode);
-    this.source = this.audioContext.createBufferSource();
-    this.source.buffer = this.bufferLoader.bufferList[birdIndex];
+    // const birdIndex = this.mapKeycodeToBufferIndex(keyCode);
+    // this.source = this.audioContext.createBufferSource();
+    // this.source.buffer = this.bufferLoader.bufferList[birdIndex];
     
-    this.gain = this.audioContext.createGain();
-    this.gain.gain.value = 0.3;
+    // this.gain = this.audioContext.createGain();
+    // this.gain.gain.value = 0.3;
 
-    this.analyser = this.audioContext.createAnalyser();
-    this.analyser.smoothingTimeConstant = 0.8;
-    this.visualization = new Visualization({
-      analyser: this.analyser,
-      visualizer: this.visualizer
+    // this.analyser = this.audioContext.createAnalyser();
+    // this.analyser.smoothingTimeConstant = 0.8;
+    // this.visualization = new Visualization({
+    //   analyser: this.analyser,
+    //   visualizer: this.visualizer
+    // });
+    // this.visualization.draw();
+
+    // this.source.connect(this.gain);
+    // this.gain.connect(this.analyser);
+    // this.analyser.connect(this.audioContext.destination);
+    // this.source.start(0);
+
+    return new Sound({
+      code: keyCode, 
+      context: this.audioContext, 
+      visualizer: this.visualizer,
+      bufferLoader: this.bufferLoader
     });
-    this.visualization.draw();
-
-    this.source.connect(this.gain);
-    this.gain.connect(this.analyser);
-    this.analyser.connect(this.audioContext.destination);
-    this.source.start(0);
   }
+        // soundLength: this.sounds.length,
 
-  mapKeycodeToBufferIndex(keycode){
-    if (keycode == 32){
-      return this.sounds.length - 1 
-    } else { 
-      return keycode % this.sounds.length;
-    }
-  }
 
   destroy(){
     window.removeEventListener("keyup", this.handleKeyUp);
@@ -590,6 +599,68 @@ module.exports = Note;
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// const NOTES = require('./notes');
+const Visualization = __webpack_require__(1);
+class Sound{
+  constructor(options){
+    this.audioContext = options.context;
+    this.keyCode = options.code;
+    // this.isPluckySound = options.isPluckySound;
+    this.visualizer = options.visualizer;
+
+    this.stop = this.stop.bind(this);
+    this.mapKeycodeToBufferIndex = this.mapKeycodeToBufferIndex.bind(this);
+    this.visualizations = {};
+    // this.soundsLength = options.bufferLoader.length
+    this.bufferLoader = options.bufferLoader;
+        this.playSound.bind(this)(this.keyCode);
+
+  }
+
+  stop(){
+    this.source.stop(0);
+    this.visualization.destroy()
+  }
+
+  playSound(keyCode){
+   // For each sound, create and connect a buffer source
+    const birdIndex = this.mapKeycodeToBufferIndex(keyCode);
+    this.source = this.audioContext.createBufferSource();
+    this.source.buffer = this.bufferLoader.bufferList[birdIndex];
+    
+    this.gain = this.audioContext.createGain();
+    this.gain.gain.value = 0.3;
+
+    this.analyser = this.audioContext.createAnalyser();
+    this.analyser.smoothingTimeConstant = 0.8;
+    this.visualization = new Visualization({
+      analyser: this.analyser,
+      visualizer: this.visualizer
+    });
+    this.visualization.draw();
+
+    this.source.connect(this.gain);
+    this.gain.connect(this.analyser);
+    this.analyser.connect(this.audioContext.destination);
+    this.source.start(0);
+  }
+
+  mapKeycodeToBufferIndex(keycode){
+    if (keycode == 32){
+      return this.bufferLoader.bufferList.length - 1;
+    } else { 
+      return keycode % this.bufferLoader.bufferList.length;
+    }
+  }
+}
+
+module.exports = Sound;
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const KeyboardAnimation = __webpack_require__(4);
